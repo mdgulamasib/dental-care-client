@@ -1,0 +1,20 @@
+.doctor-summary {
+    display: flex;
+    align-items: center;
+}
+
+.summary-text {
+    text-align: justify;
+    margin-right: 20%;
+}
+
+.summary-text h2,
+h6 {
+    color: rgb(2, 51, 51);
+    font-weight: 700;
+}
+
+
+.summary-img {
+    width: 100%;
+}
