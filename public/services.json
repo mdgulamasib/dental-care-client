@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Dental Implant",
+        "price": "1350",
+        "description": "Implants provide a strong foundation for permanent or removable teeth and can be made to look like your natural teeth.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/home-services-3.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Teeth Polishing",
+        "price": "320",
+        "description": "Tooth polishing is a painless dental procedure, and some patients enjoy it. The dental hygienist usually uses a small, soft rubber cup and polishing paste.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/dhx81wwym9ebbwuweizu.png"
+    },
+    {
+        "id": 3,
+        "name": "Root Canalling",
+        "price": "750",
+        "description": "Root canals are needed for a cracked tooth from injury or genetics, a deep cavity, or issues from a previous filling.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/home-services.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Teeth Whitening",
+        "price": "550",
+        "description": "Teeth with a natural yellow shade will generally whiten in about 1 to 2 weeks, whereas teeth with a blue/grey shade can take twice as long.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/home-services-4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Extraction Milk Tooth",
+        "price": "50",
+        "description": "Early removal of milk tooth can lead to the fact that neighboring teeth will start occupying its place.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/0_GettyImages-486169219.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Pulp Capping",
+        "price": "280",
+        "description": "Direct pulp capping should be used only on a vital pulp that has been accidentally injured and shows no other symptoms.",
+        "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/home-services-2.jpg"
+    }
+]

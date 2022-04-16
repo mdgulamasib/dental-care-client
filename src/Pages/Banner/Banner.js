@@ -47,7 +47,7 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h3 className='carousel-styling'>Dental Surgery</h3>
+                        <h3 className='carousel-styling fs-1'>Dental Surgery</h3>
                         <p className='carousel-styling fs-5 '>Engage fully tested process top line platform clients.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
