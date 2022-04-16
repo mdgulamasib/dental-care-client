@@ -24,7 +24,7 @@
         "id": 4,
         "name": "Teeth Whitening",
         "price": "550",
-        "description": "Teeth with a natural yellow shade will generally whiten in about 1 to 2 weeks, whereas teeth with a blue/grey shade can take twice as long.",
+        "description": "Teeth with a natural yellow shade will generally whiten in 2 weeks,and blue/grey shade can take twice as long.",
         "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/home-services-4.jpg"
     },
     {
@@ -35,7 +35,7 @@
         "img": "https://raw.githubusercontent.com/mdgulamasib/saudi-dates-api/main/services/0_GettyImages-486169219.jpg"
     },
     {
-        "id": 2,
+        "id": 6,
         "name": "Pulp Capping",
         "price": "280",
         "description": "Direct pulp capping should be used only on a vital pulp that has been accidentally injured and shows no other symptoms.",
