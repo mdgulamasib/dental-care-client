@@ -10,7 +10,7 @@ import './RequireAuth.css'
 const RequireAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(auth);
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
     const refreshPage = () => {
         window.location.reload(false);
@@ -24,9 +24,6 @@ const RequireAuth = ({ children }) => {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 
-    /*  if (error) {
-         errorElement = <p className='text-danger'>Error: {error?.message}</p>
-     } */
 
     if (!user.emailVerified) {
         return <div className='verify-style'>

@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import './Register.css'
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../../Shared/Loading/Loading';
 
@@ -12,6 +12,8 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let errorElement;
 
 
@@ -21,12 +23,16 @@ const Login = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-    /*     const [updateProfile, updating, updateError] = useUpdateProfile(auth); */
+
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
 
     if (loading) {
         return <Loading></Loading>
     }
 
+    if (user) {
+        navigate(from, { replace: true });
+    }
 
     if (error) {
         errorElement = <p className='text-danger'>Error: {error?.message}</p>
@@ -38,7 +44,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await createUserWithEmailAndPassword(email, password);
-        /*         await updateProfile({ displayName: name }); */
+        await sendEmailVerification();
     }
 
     const navigateRegister = event => {
