@@ -3,6 +3,8 @@ import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import './Register.css'
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Login = () => {
     const nameRef = useRef('')
@@ -10,12 +12,22 @@ const Login = () => {
     const passwordRef = useRef('');
     const navigate = useNavigate();
 
-    const handleSubmit = event => {
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+    /*     const [updateProfile, updating, updateError] = useUpdateProfile(auth); */
+
+    const handleRegister = async (event) => {
         event.preventDefault();
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(name, email, password)
+        await createUserWithEmailAndPassword(email, password);
+        /*         await updateProfile({ displayName: name }); */
     }
 
     const navigateRegister = event => {
@@ -26,7 +38,7 @@ const Login = () => {
     return (
         <div className='container text-center w-25 mx-auto'>
             <h2 className=' text-color text-center my-5 fw-bold'>Please Register</h2>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="username">
                     <Form.Control ref={nameRef} type="text" placeholder="Enter Your Name" required />
                 </Form.Group>
