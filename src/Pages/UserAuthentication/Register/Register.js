@@ -47,7 +47,7 @@ const Login = () => {
 
 
     return (
-        <div className='container text-center w-25 mx-auto'>
+        <div className='container text-center responsive-width mx-auto'>
             <h2 className=' text-color text-center my-5 fw-bold'>Please Register</h2>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="username">

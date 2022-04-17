@@ -24,7 +24,7 @@ const Banner = () => {
                     />
                     <Carousel.Caption>
                         <h3 className='carousel-styling fs-1'>Teeth Implants</h3>
-                        <p className='carousel-styling'>Leverage other resource leveling convergence data.</p>
+                        <p className='carousel-styling'>Teeth implants using modern equipments.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -36,7 +36,7 @@ const Banner = () => {
 
                     <Carousel.Caption>
                         <h3 className='carousel-styling fs-1'>Teeth Protection</h3>
-                        <p className='carousel-styling'>Evisculate holistic innovation rather than centric data.</p>
+                        <p className='carousel-styling'>Affordable teeth protection service</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -48,7 +48,7 @@ const Banner = () => {
 
                     <Carousel.Caption>
                         <h3 className='carousel-styling fs-1'>Dental Surgery</h3>
-                        <p className='carousel-styling fs-5 '>Engage fully tested process top line platform clients.</p>
+                        <p className='carousel-styling'>We ensure painless surgery</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
