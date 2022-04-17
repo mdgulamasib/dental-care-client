@@ -21,7 +21,7 @@ const Service = ({ service }) => {
                     <h4 className="card-title">{name}</h4>
                     <h6 className="card-text fw-bold">Approximate Fees: ${price}</h6>
                     <p className="card-text">{description}</p>
-                    <button onClick={() => navigateToCheckOut()} className="btn-primary book-a-call-style">Book a Call</button>
+                    <button onClick={() => navigateToCheckOut()} className="btn-primary book-a-call-style">Checkout Availability</button>
                 </div>
             </div>
         </div >

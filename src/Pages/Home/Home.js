@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Banner from '../Banner/Banner';
-import Intro from '../Intro/Intro';
+import Intro from '../DoctorIntro/Intro';
 import Services from '../Services/Services';
 
 import './Home.css'
