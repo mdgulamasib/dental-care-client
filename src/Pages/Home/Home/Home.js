@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import Banner from '../Banner/Banner';
-import Intro from '../DoctorIntro/Intro';
-import Services from '../Services/Services';
-import FAQ from './FAQ/FAQ';
+import React from 'react';
+import FAQ from '../FAQ/FAQ'
+import Banner from '../Banner/Banner'
+import Intro from '../DoctorIntro/Intro'
 
 import './Home.css'
+import Services from '../Services/Services'
+
 
 const Home = () => {
     return (
