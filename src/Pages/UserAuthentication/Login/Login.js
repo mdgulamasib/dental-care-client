@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import './Login.css'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../../Shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -12,6 +15,10 @@ const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+    let errorElement;
 
     const [
         signInWithEmailAndPassword,
@@ -19,6 +26,21 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+    if (loading || sending) {
+        return <Loading></Loading>
+    }
+
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
+
 
 
 
@@ -32,6 +54,28 @@ const Login = () => {
     const navigateRegister = event => {
         navigate('/register')
     }
+
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
+
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success("Email Sent, Please Check Inbox Or Spam Folder", {
+                position: toast.POSITION.TOP_CENTER,
+                theme: 'colored'
+            });
+
+        }
+
+
+        else {
+            toast.error("Enter Your Email & Click The Reset Link", {
+                position: toast.POSITION.TOP_CENTER,
+                theme: 'colored'
+            });
+        }
+    }
+
 
 
     return (
@@ -49,14 +93,20 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
+            {errorElement}
 
-            <p className='mt-3'>Don't have an account?<span className='text-primary btn' onClick={navigateRegister}>Click to Register</span></p>
+            <div>
+                <p className='mt-3 mb-0'>Don't have an account?<span className='text-primary btn' onClick={navigateRegister}>Click to Register</span></p>
+                <p className='m-0'>Forget Password?<span className='btn  text-primary' onClick={resetPassword}>Reset Password</span></p>
+            </div>
             <div className='d-flex align-items-center'>
                 <div className='divider-bg w-50'></div>
                 <p className='mt-2 px-2 fw-bold'>OR</p>
                 <div className='divider-bg w-50'></div>
             </div>
             <GoogleSignIn></GoogleSignIn>
+            <ToastContainer />
+
         </div>
     );
 };

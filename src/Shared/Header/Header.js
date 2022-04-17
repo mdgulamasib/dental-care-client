@@ -26,8 +26,8 @@ const Header = () => {
                         <Nav className="ms-auto">
                             <Nav.Link className='me-md-3' as={Link} to="/home">Home</Nav.Link>
                             <Nav.Link className='me-md-3' href="home#services">Services</Nav.Link>
-                            <Nav.Link className='me-md-3' href="/blog">Blog</Nav.Link>
-                            <Nav.Link className='me-md-3' href="#about">About</Nav.Link>
+                            <Nav.Link className='me-md-3' as={Link} to="/blog">Blog</Nav.Link>
+                            <Nav.Link className='me-md-3' as={Link} to="/about">About</Nav.Link>
                             {
                                 user ?
                                     <button id='signout-btn' className='btn btn-link text-white text-decoration-none ' onClick={handleSignOut}>sign out</button>
