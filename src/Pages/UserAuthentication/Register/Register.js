@@ -5,12 +5,14 @@ import GoogleSignIn from '../GoogleSignIn/GoogleSignIn';
 import './Register.css'
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Login = () => {
     const nameRef = useRef('')
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    let errorElement;
 
 
     const [
@@ -20,6 +22,15 @@ const Login = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     /*     const [updateProfile, updating, updateError] = useUpdateProfile(auth); */
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+
+    if (error) {
+        errorElement = <p className='text-danger'>Error: {error?.message}</p>
+    }
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -53,7 +64,7 @@ const Login = () => {
                     Register
                 </Button>
             </Form>
-
+            {errorElement}
             <p className='mt-3'>Already have an account?<span className='text-primary btn' onClick={navigateRegister}>Click to Login</span></p>
             <div className='d-flex align-items-center'>
                 <div className='divider-bg w-50'></div>
